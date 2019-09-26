@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>什么是构造函数 // tiankong44</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://tiankong44.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="什么是构造函数"/>
+<meta name="twitter:description" content="什么是构造函数 构造函数是一种特殊的函数，用来在对象实例化时初始化对象的成员变量。
+特点  构造函数名必须与类名相同，并且不能有返回值（返回值也不能为void）
+ 每个类可以有多个构造函数。当开发人员没有提供构造函
+  数时，编译器会在把源代码编译成字节码文件的过程中提
+供一个无参构造，但改构造函数不会执行任何代码
+ 构造函数总是伴随着new操作一起调用，且不能由程序编  写者直接调用，必须由系统调用。构造函数在对象化实例
+化时会被自动调用，且只会运行一次
+ 构造函数主要完成初始化工作
+ 构造函数不能被继承，但构造函数能被重载
+ 子类可以通过super关键字来显示的调用父类构造函数
+ 当父类子类都没有定义构造函数时，编译器会为父类生成
+  一个默认的无参构造，给子类也会生成一个默认的无參构
+造函数。"/>
+
+    <meta property="og:title" content="什么是构造函数" />
+<meta property="og:description" content="什么是构造函数 构造函数是一种特殊的函数，用来在对象实例化时初始化对象的成员变量。
+特点  构造函数名必须与类名相同，并且不能有返回值（返回值也不能为void）
+ 每个类可以有多个构造函数。当开发人员没有提供构造函
+  数时，编译器会在把源代码编译成字节码文件的过程中提
+供一个无参构造，但改构造函数不会执行任何代码
+ 构造函数总是伴随着new操作一起调用，且不能由程序编  写者直接调用，必须由系统调用。构造函数在对象化实例
+化时会被自动调用，且只会运行一次
+ 构造函数主要完成初始化工作
+ 构造函数不能被继承，但构造函数能被重载
+ 子类可以通过super关键字来显示的调用父类构造函数
+ 当父类子类都没有定义构造函数时，编译器会为父类生成
+  一个默认的无参构造，给子类也会生成一个默认的无參构
+造函数。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tiankong44.github.io/post/%E4%BB%80%E4%B9%88%E6%98%AF%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/" />
+<meta property="article:published_time" content="2019-09-17T20:30:43+08:00" />
+<meta property="article:modified_time" content="2019-09-17T18:30:43+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://tiankong44.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>tiankong44</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">什么是构造函数</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 17, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h4 id="什么是构造函数">什么是构造函数</h4>
+
+<p>构造函数是一种特殊的函数，用来在对象实例化时初始化对象的成员变量。</p>
+
+<h5 id="特点">特点</h5>
+
+<ol>
+<li><p>构造函数名必须与类名相同，并且不能有返回值（返回值也不能为void）</p></li>
+
+<li><p>每个类可以有多个构造函数。当开发人员没有提供构造函</p></li>
+</ol>
+
+<p>数时，编译器会在把源代码编译成字节码文件的过程中提</p>
+
+<p>供一个无参构造，但改构造函数不会执行任何代码</p>
+
+<ol>
+<li>构造函数总是伴随着new操作一起调用，且不能由程序编</li>
+</ol>
+
+<p>写者直接调用，必须由系统调用。构造函数在对象化实例</p>
+
+<p>化时会被自动调用，且只会运行一次</p>
+
+<ol>
+<li><p>构造函数主要完成初始化工作</p></li>
+
+<li><p>构造函数不能被继承，但构造函数能被重载</p></li>
+
+<li><p>子类可以通过super关键字来显示的调用父类构造函数</p></li>
+
+<li><p>当父类子类都没有定义构造函数时，编译器会为父类生成</p></li>
+</ol>
+
+<p>一个默认的无参构造，给子类也会生成一个默认的无參构</p>
+
+<p>造函数。</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

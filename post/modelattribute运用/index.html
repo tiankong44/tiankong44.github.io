@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>@ModelAttribute的运用 // tiankong44</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://tiankong44.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="@ModelAttribute的运用"/>
+<meta name="twitter:description" content="@ModelAttribute的运用  @ModelAttribute注释方法  被@ModelAttribute注释的方法会在此controller每个方法执行前被执行
+ @ModelAttribute注释一个方法的参数
+ 从Model中取
+@Controller public class HelloWorldController { @ModelAttribute(&quot;user&quot;) public User addAccount() { return new User(&quot;jz&quot;,&quot;123&quot;); } @RequestMapping(value = &quot;/helloWorld&quot;) public String helloWorld(@ModelAttribute(&quot;user&quot;) User user) { user.setUserName(&quot;jizhou&quot;); return &quot;helloWorld&quot;; } }   在这个例子里，@ModelAttribute(&ldquo;user&rdquo;) User user注释方法参数，参数user的值来源于addAccount()方法中的model属性。 此时如果方法体没有标注@SessionAttributes(&ldquo;user&rdquo;)，那么scope为request，如果标注了，那么scope为session
+  ​ 2.从Form表单或URL参数中获取（实际上，不做此注释也能拿到user对象）
+@ModelAttribute具有如下作用：
+　绑定请求参数到命令对象：放在功能处理方法的入参上时，用于将多个请求参数绑定到一个命令对象，从而简化绑定流程，而且自动暴露为模型数据用于视图页面展示时使用。其实@ModelAttribute 此处对于供视图页面展示来说与 model.addAttribute(&ldquo;attributeName&rdquo;, abc); 功能类似。
+@Controller public class HelloWorldController { @RequestMapping(value = &quot;/helloWorld&quot;) public String helloWorld(@ModelAttribute(&quot;user&quot;) User user) { return &quot;helloWorld&quot;; } }  　此处多了一个注解@ModelAttribute(&ldquo;user&rdquo;)，它的作用是将该绑定的命令对象以“user”为名称添加到模型对象中供视图页面展示使用。我们此时可以在视图页面使用${user."/>
+
+    <meta property="og:title" content="@ModelAttribute的运用" />
+<meta property="og:description" content="@ModelAttribute的运用  @ModelAttribute注释方法  被@ModelAttribute注释的方法会在此controller每个方法执行前被执行
+ @ModelAttribute注释一个方法的参数
+ 从Model中取
+@Controller public class HelloWorldController { @ModelAttribute(&quot;user&quot;) public User addAccount() { return new User(&quot;jz&quot;,&quot;123&quot;); } @RequestMapping(value = &quot;/helloWorld&quot;) public String helloWorld(@ModelAttribute(&quot;user&quot;) User user) { user.setUserName(&quot;jizhou&quot;); return &quot;helloWorld&quot;; } }   在这个例子里，@ModelAttribute(&ldquo;user&rdquo;) User user注释方法参数，参数user的值来源于addAccount()方法中的model属性。 此时如果方法体没有标注@SessionAttributes(&ldquo;user&rdquo;)，那么scope为request，如果标注了，那么scope为session
+  ​ 2.从Form表单或URL参数中获取（实际上，不做此注释也能拿到user对象）
+@ModelAttribute具有如下作用：
+　绑定请求参数到命令对象：放在功能处理方法的入参上时，用于将多个请求参数绑定到一个命令对象，从而简化绑定流程，而且自动暴露为模型数据用于视图页面展示时使用。其实@ModelAttribute 此处对于供视图页面展示来说与 model.addAttribute(&ldquo;attributeName&rdquo;, abc); 功能类似。
+@Controller public class HelloWorldController { @RequestMapping(value = &quot;/helloWorld&quot;) public String helloWorld(@ModelAttribute(&quot;user&quot;) User user) { return &quot;helloWorld&quot;; } }  　此处多了一个注解@ModelAttribute(&ldquo;user&rdquo;)，它的作用是将该绑定的命令对象以“user”为名称添加到模型对象中供视图页面展示使用。我们此时可以在视图页面使用${user." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tiankong44.github.io/post/modelattribute%E8%BF%90%E7%94%A8/" />
+<meta property="article:published_time" content="2019-08-12T18:30:43+08:00" />
+<meta property="article:modified_time" content="2019-08-12T18:30:43+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://tiankong44.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>tiankong44</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">@ModelAttribute的运用</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Aug 12, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h4 id="modelattribute的运用">@ModelAttribute的运用</h4>
+
+<ol>
+<li><strong>@ModelAttribute注释方法</strong></li>
+</ol>
+
+<p>被@ModelAttribute注释的方法会在此controller每个方法执行前被执行</p>
+
+<ol>
+<li><p><strong>@ModelAttribute注释一个方法的参数</strong></p>
+
+<ol>
+<li><p>从Model中取</p>
+
+<pre><code class="language-java">@Controller 
+public class HelloWorldController { 
+@ModelAttribute(&quot;user&quot;) 
+public User addAccount() { 
+   return new User(&quot;jz&quot;,&quot;123&quot;); 
+} 
+   
+@RequestMapping(value = &quot;/helloWorld&quot;) 
+public String helloWorld(@ModelAttribute(&quot;user&quot;) User user) { 
+      user.setUserName(&quot;jizhou&quot;); 
+      return &quot;helloWorld&quot;; 
+   } 
+}
+</code></pre></li>
+</ol>
+
+<p>在这个例子里，@ModelAttribute(&ldquo;user&rdquo;) User user注释方法参数，参数user的值来源于addAccount()方法中的model属性。
+此时如果方法体没有标注@SessionAttributes(&ldquo;user&rdquo;)，那么scope为request，如果标注了，那么scope为session</p></li>
+</ol>
+
+<p>​    2.从Form表单或URL参数中获取（实际上，不做此注释也能拿到user对象）</p>
+
+<p>@ModelAttribute具有如下作用：</p>
+
+<p>　绑定请求参数到命令对象：放在功能处理方法的入参上时，用于将多个请求参数绑定到一个命令对象，从而简化绑定流程，而且自动暴露为模型数据用于视图页面展示时使用。其实@ModelAttribute 此处对于供视图页面展示来说与 model.addAttribute(&ldquo;attributeName&rdquo;, abc); 功能类似。</p>
+
+<pre><code class="language-java">   @Controller 
+   public class HelloWorldController { 
+       @RequestMapping(value = &quot;/helloWorld&quot;) 
+       public String helloWorld(@ModelAttribute(&quot;user&quot;) User user) { 
+           return &quot;helloWorld&quot;; 
+        } 
+   }
+</code></pre>
+
+<p>　　此处多了一个注解@ModelAttribute(&ldquo;user&rdquo;)，它的作用是将该绑定的命令对象以“user”为名称添加到模型对象中供视图页面展示使用。我们此时可以在视图页面使用${user.username}来获取绑定的命令对象的属性。</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

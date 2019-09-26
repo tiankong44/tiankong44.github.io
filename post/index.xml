@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on tiankong44</title>
+    <link>https://tiankong44.github.io/post/</link>
+    <description>Recent content in Posts on tiankong44</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Sep 2019 18:30:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://tiankong44.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>什么是反射机制</title>
+      <link>https://tiankong44.github.io/post/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Tue, 17 Sep 2019 18:30:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/%E4%BB%80%E4%B9%88%E6%98%AF%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/</guid>
+      <description> 什么是反射机制 反射机制能够实现在运行时对类进行装载，增加程序灵活性，但不恰当使用反射机制会严重影响系统性能。
+主要功能  得到一个对象所属的类 获取一个雷的所有成员变量和方法 在运行时创建对象 在运行是调用对象的方法  在反射机制中Class是一个非常重要的类，总共有三种方法可以获取到Class类
+ CLass.forName(&amp;ldquo;类的路径&amp;rdquo;) 类名.Class 实例.getClass()  举例 class Base{ public void f(){ System.out.println(&amp;quot;Base&amp;quot;); } } public Sub extends Base{ public void f(){ System.out.println(&amp;quot;Sub&amp;quot;) } } public Test{ public static void main(String args[]){ try{ //使用反射机制加载类 Class c=Class.forName(&amp;quot;Sub&amp;quot;); Base b=(Base)c.newInstance; b.f(); }catch(Exception e){ e.printStackTrance() } } }  常见面试题 java创建对象的方式有几种
+ 通过new语句实例化一个对象 通过反射机制创建对象 通过clone()方法创建一个对象 通过反序列化创建一个对象  </description>
+    </item>
+    
+    <item>
+      <title>什么是构造函数</title>
+      <link>https://tiankong44.github.io/post/%E4%BB%80%E4%B9%88%E6%98%AF%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Tue, 17 Sep 2019 18:30:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/%E4%BB%80%E4%B9%88%E6%98%AF%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/</guid>
+      <description>什么是构造函数 构造函数是一种特殊的函数，用来在对象实例化时初始化对象的成员变量。
+特点  构造函数名必须与类名相同，并且不能有返回值（返回值也不能为void）
+ 每个类可以有多个构造函数。当开发人员没有提供构造函
+  数时，编译器会在把源代码编译成字节码文件的过程中提
+供一个无参构造，但改构造函数不会执行任何代码
+ 构造函数总是伴随着new操作一起调用，且不能由程序编  写者直接调用，必须由系统调用。构造函数在对象化实例
+化时会被自动调用，且只会运行一次
+ 构造函数主要完成初始化工作
+ 构造函数不能被继承，但构造函数能被重载
+ 子类可以通过super关键字来显示的调用父类构造函数
+ 当父类子类都没有定义构造函数时，编译器会为父类生成
+  一个默认的无参构造，给子类也会生成一个默认的无參构
+造函数。</description>
+    </item>
+    
+    <item>
+      <title>关键字</title>
+      <link>https://tiankong44.github.io/post/%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <pubDate>Tue, 17 Sep 2019 18:30:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <description> 关键字 变量命名规则  首字母是英文字母、$和下划线，由字母、数字和下划线组成。 使用完整的单词命名，而非缩写 不能只使用关键字，但是可以包含关键字  </description>
+    </item>
+    
+    <item>
+      <title>面向对象技术</title>
+      <link>https://tiankong44.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Tue, 17 Sep 2019 18:30:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF/</guid>
+      <description>面向对象和面向过程的区别
+ 出发点不同。面向对象方法是符合常规思维的方式来处理客观世界的问题，强调把问题域的要领直接映射到对象及对象的接口上。面向过程方法强调的规则是过程的抽象化与模块化，他是以过程为中心构造或者处理客观世界的问题、 层次逻辑关系不同。面向对象是用类的层次结构体现类之间的继承和发展。面向过程方法处理问题的基本单位是能清晰准确的表达过程模块。 数据处理方式和控制程序方式不同。面向对象将数据与对应的代码封装成一个整体，原则上其他对象不能直接修改其数据，及修改只能由其自身的成员函数来完成。控制程序的方式是“事件驱动”来激活运行程序。面向过程是直接通过程序来处理数据，处理完毕后即可显示结果，在程序控制方式上是按照设计调用  面向对象有哪些特征 面向对象的主要特征包括抽象、继承、封装、多肽
+ 抽象。抽象并不打算解决全部问题，而是解决问题的一部分。抽象包括两个方面：  过程抽象 数据抽象  继承。新类继承了原始类的特性，新类称为原始类的派生类（子类），而原始类称为新类的基类（父类）。子类可以从他的基类那里继承方法和实例变量，并且子类可以修改或者增加新的方法使之更加适合特殊需求。 封装。封装是指将客观事物抽象成类，每个类对自身的数据和方法实行保护。类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。 多肽。 多肽是指允许不同类的对象对同一消息做出响应。多态性语言具有灵活、抽象、行为共享、代码共享等优势，很好的解决了程序函数同名的问题。  优点  较高的开发效力 保证软件的鲁棒性 保证软件的可维护性  什么是继承 继承是面向对象中一个非常重要的特性。通过继承，子类可以使用父类的一些成员变量与方法，从而提高代码的复用性了，提高开发效率。
+特征  JAVA语言不支持多重继承，子类只能有一个父类，但可以通过接口来达到多重继承的目的。 子类只能继承父类非室友的成员变量与方法 当子类定义的成员变量 名与父类的成员变量同名时，子类会覆盖父类的成员变量而不会继承。 当子类的方法与父类的方法有心痛的函数签名（相同的方法名，相同的参数个数与类型）时子类将会覆盖父类的方法，而不会继承。  常见面试题 下列有关继承说法中，正确的是（B)
+   A.子类能继承父类的所有方法和状态 B.子类能继承父类的非私有方法和状态     C.子类能继承父类的public方法和状态 D.子类能继承父类的方法，而不是状态    过多的使用继承会破坏代码的可维护性，当父类被修改时，会影响到所有继承他的子类，从而增加程序维护的难度与成本
+JAVA语言中能使用组合尽量不要用继承
+Super必须为构造函数的第一句
+多肽的实现机制 Java提供了编译时多态和运行时多态两种多态机制。前者是通过方法重载实现的，后者是通过方法的覆盖实现的。
+在方法覆盖中，子类可以覆盖父类的方法，因此同类的方法会在父类与子类中有着不同的表现形式
+　在Java语言中，基类的引用变量不仅可以指向基类的实例对象，也可以指向其子类中的实例对象。同样，接口中的引用变量也可以指向其实现类的实例对象。而程序调用的方法在运行时期才动态绑定（绑定是指将一个方法调用和一个方法主体联系在一起），绑定的是引用变量所指向的具体实例对象的方法，也就是内存中正在运行的那个对象的方法，而不是引用变量的类型中定义的方法。通过这种动态绑定实现了多态。由于只有在运行时才能确定调用哪个方法，因此通过方法覆盖实现的多态也可以被称为运行时多态。
+public class Base { public Base(){ g(); } public void g() { System.</description>
+    </item>
+    
+    <item>
+      <title>getParameterValues和getParameter的区别</title>
+      <link>https://tiankong44.github.io/post/getparametervalues%E5%92%8Cgetparameter%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Tue, 13 Aug 2019 10:30:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/getparametervalues%E5%92%8Cgetparameter%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>getParameterValues和getParameter的区别 1.request.getParameter:获取前台表单单个元素name对应的value值
+2.request.getParameterValues:获取前台表单多个标签同名name对应的所有value值
+3.request.getParameterNames:获取前台表单所有标签元素name的对应的所有value值</description>
+    </item>
+    
+    <item>
+      <title>@ModelAttribute的运用</title>
+      <link>https://tiankong44.github.io/post/modelattribute%E8%BF%90%E7%94%A8/</link>
+      <pubDate>Mon, 12 Aug 2019 18:30:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/modelattribute%E8%BF%90%E7%94%A8/</guid>
+      <description>@ModelAttribute的运用  @ModelAttribute注释方法  被@ModelAttribute注释的方法会在此controller每个方法执行前被执行
+ @ModelAttribute注释一个方法的参数
+ 从Model中取
+@Controller public class HelloWorldController { @ModelAttribute(&amp;quot;user&amp;quot;) public User addAccount() { return new User(&amp;quot;jz&amp;quot;,&amp;quot;123&amp;quot;); } @RequestMapping(value = &amp;quot;/helloWorld&amp;quot;) public String helloWorld(@ModelAttribute(&amp;quot;user&amp;quot;) User user) { user.setUserName(&amp;quot;jizhou&amp;quot;); return &amp;quot;helloWorld&amp;quot;; } }   在这个例子里，@ModelAttribute(&amp;ldquo;user&amp;rdquo;) User user注释方法参数，参数user的值来源于addAccount()方法中的model属性。 此时如果方法体没有标注@SessionAttributes(&amp;ldquo;user&amp;rdquo;)，那么scope为request，如果标注了，那么scope为session
+  ​ 2.从Form表单或URL参数中获取（实际上，不做此注释也能拿到user对象）
+@ModelAttribute具有如下作用：
+　绑定请求参数到命令对象：放在功能处理方法的入参上时，用于将多个请求参数绑定到一个命令对象，从而简化绑定流程，而且自动暴露为模型数据用于视图页面展示时使用。其实@ModelAttribute 此处对于供视图页面展示来说与 model.addAttribute(&amp;ldquo;attributeName&amp;rdquo;, abc); 功能类似。
+@Controller public class HelloWorldController { @RequestMapping(value = &amp;quot;/helloWorld&amp;quot;) public String helloWorld(@ModelAttribute(&amp;quot;user&amp;quot;) User user) { return &amp;quot;helloWorld&amp;quot;; } }  　此处多了一个注解@ModelAttribute(&amp;ldquo;user&amp;rdquo;)，它的作用是将该绑定的命令对象以“user”为名称添加到模型对象中供视图页面展示使用。我们此时可以在视图页面使用${user.</description>
+    </item>
+    
+    <item>
+      <title>多线程(二)</title>
+      <link>https://tiankong44.github.io/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BA%8C/</link>
+      <pubDate>Wed, 07 Aug 2019 18:30:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BA%8C/</guid>
+      <description>多线程（二）  线程等待与唤醒  方法介绍：
+Object类中定义了wait()、notify()、notifyAll()等接口，描述如下：
+wait():让线程处于等待阻塞状态（并释放它持有的锁），直到其他线程调用此对象的notify()或notifyAll()方法。该方法有三个重载，分别是无参、带参long timeout（表示超过某个时间量会就绪）、带参long timeout,int nanos。后两者都表示时间，nanos的精度更高。
+notify():唤醒在此对象监视器上等待的单个线程，关于“对象监视器上等待的线程”可以理解为是另外一个想要竞争该对象锁的线程。在jdk注释中详细描述了如何让一个线程成为“对象监视器上等待的线程”，有如下三条：
+1.通过执行该对象的同步实例方法。
+2.通过执行在对象上同步的已同步语句体。
+3.对于Class类型的对象，通过执行该类的异步静态方法 notifyAll():唤醒在此对象监视器上等待的所有线程。
+上述三个方法都必须在synchronized同步关键字所限定的作用域中调用，否则会报错java.lang.IllegalMonitorStateException，这个错误的直观信息是当前线程并不是对象监视器上等待的线程，所以无法进行线程间通信，无法调用上述方法。
+public class ThreadA extends Thread{ public ThreadA(String name) { super(name); } @Override public void run() { synchronized (this) { System.out.println(Thread.currentThread().getName()+&amp;quot; call notify()&amp;quot;); notify(); } } }  public class WaitTest { public static void main(String[] args) { ThreadA t1 = new ThreadA(&amp;quot;t1&amp;quot;); synchronized (t1) { try { System.out.println(Thread.currentThread().getName()+&amp;quot; start t1&amp;quot;); t1.start(); System.out.println(Thread.currentThread().getName()+&amp;quot; wait()&amp;quot;); t1.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC&#43;Spring&#43;Hibernate中controller、service和dao之间的关系总结</title>
+      <link>https://tiankong44.github.io/post/springmvc&#43;spring&#43;hibernate%E4%B8%ADcontrollerservice%E5%92%8Cdao%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Tue, 06 Aug 2019 18:30:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/springmvc&#43;spring&#43;hibernate%E4%B8%ADcontrollerservice%E5%92%8Cdao%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB%E6%80%BB%E7%BB%93/</guid>
+      <description>SpringMVC+Spring+Hibernate中controller、service和dao之间的关系总结 ​ controller直接对客户端的请求，有哪些请求就需要有对应的controller，service处理业务逻辑，通常也与controller 中的方法对应，dao层只做对于数据库的增删改查，不做其他的事情。所以完整service方法如果有必要对数据库进行多次操作，就可以调用多个dao层方法</description>
+    </item>
+    
+    <item>
+      <title>多线程(一)</title>
+      <link>https://tiankong44.github.io/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%80/</link>
+      <pubDate>Tue, 06 Aug 2019 18:30:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%80/</guid>
+      <description>多线程(一) 什么是线程？什么事进程？
+进程：进入运行状态的程序（CPU\内存\硬盘\带宽）
+线程：是进程中的一条执行线索。
+多线程的优势：
+提高CPU，内存，硬盘，带宽等利用率。
+多线程的安全隐患：
+主要是单一进程中的多线程容易造成数据的不一致问题。【线程安全】问题是多线程带来的最直观
+线程的状态：
+ 新建状态：线程对象被创建后，进入新建状态。 就绪状态：也被称为“可执行状态”。标志是调用了start（）方法，但是调用之后可能并不立即运行，而是等待CPU的调度。 运行状态：线程获取CPU权限进行执行。 阻塞状态：线程因为某种原因放弃CPU使用权，只能暂时停止运行，分为三种：
+ 等待阻塞：调用wait（）方法，让线程等待某工作的完成。 同步阻塞：获取synchronized同步锁时失败（因为锁被其它线程占用），进入同步阻塞状态。 其他阻塞：通过调用线程的sleep（）或join（）或发出了I/O请求时，线程会进入到阻塞状态。  死亡状态：线程执行完了或者因异常退出了run（）方法，该线程结束生命周期。
+  多线程实现方式
+Runnable 接口：
+是一个接口，该接口中只定义了一个run方法，让类A实现该接口之后，通过new Thread(new A())等方式新建线程。
+Thread 类：
+这个类本身就实现了Runnable接口，通过继承该类，可以实现多线程。
+对比：
+继承接口的扩展性更好，如果多个线程都基于同一个Runnable对象建立，它们就会共享Runnable对象上的资源。因此Runnable接口实现多线程这个方案更好。
+关于start()方法
+start()： 启动一个新线程，新线程会执行run()方法。start()不能被重复调用。 public class MyThread extends Thread{ ​	public MyThread(String name) { ​	super(name); ​	} ​	@Override ​	public void run() { ​	System.out.println(Thread.currentThread().getName()+&amp;quot;在运行中...&amp;quot;); ​	} }  public class Test{ ​	public static void main(String[] args) { ​	MyThread mythread = new MyThread(&amp;quot;mythread&amp;quot;); ​	System.</description>
+    </item>
+    
+    <item>
+      <title>少女心爆棚的机械键盘</title>
+      <link>https://tiankong44.github.io/post/%E5%B0%91%E5%A5%B3%E5%BF%83%E7%88%86%E6%A3%9A%E7%9A%84%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/</link>
+      <pubDate>Fri, 16 Nov 2018 17:39:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/%E5%B0%91%E5%A5%B3%E5%BF%83%E7%88%86%E6%A3%9A%E7%9A%84%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/</guid>
+      <description>少女心爆棚的机械键盘 今年的双十一，手格外的痛！在前几天“显卡姬”视频中我知道了阿米洛樱花这款键盘，当时我的少女心就爆发了。怎么会有这么好看的键盘。这时的我还不知道阿米洛这个品牌，我的印象中只有罗技，雷蛇等大厂。
+当这些大厂都在追求按键手感和质量的时候，国内的另一家沧桑却发现了新的思路——外观设计。
+阿米洛樱花，今天的主角。
+“桜”是为了纪念阿米洛正式登陆日本市场而推出的纪念款键盘，拥有68、87、108三种尺寸选择。
+我因为用惯了小键盘，所以毫不犹豫的选择了108键的版本。
+快递已到我毫不犹豫的打开快递盒，映入眼帘的是精美的包装盒
+小心翼翼的撕开包装，一点都舍不得破坏它，有一种让我收藏的冲动。打开盒子一股樱花的香味扑面而来，我是真的没想到键盘会有樱花的香味，一个厂商竟然这么细心，简直让我对他的好感度爆棚，让我忘记了700多块的价格。——值了！
+取出键盘整体，粉粉嫩嫩的键盘真真确确的拿在手中还有一点不敢相信的感觉，甚至连连接线，拔键器都是粉色的，简直少女心爆棚。
+现在的第一件事是什么，当然是发朋友圈，发空间啊！看看下面的评论，我自己都没想到
+这些评论一点都没有吝啬对键盘的夸赞
+夸完了，我们来看看实际上手的感觉吧！
+键帽是加号的PBT材质，对比常见的ABS材质成本更高，不容易打油，有点磨砂触感。字母是热升华工艺上去的，热升华的字母不会褪色，而且表面平滑不会有凹凸感。虽然成本比较高，但看看超美的樱花图案，颜色鲜艳，画面细腻，把热升华工业的优势发挥到淋淋尽致。其它刻印方式真是没法比。对比RGB灯，小编觉得优雅又不浮夸更显逼格。
+我这次选择的是茶轴，以前用惯了青轴现在突然转变了茶轴对我的感受是打字太轻了，触发很快，直上直下，干脆利落，对于我这种用惯了青轴的人来说容易误触，我想了想，作为一个未来的程序猿，青轴应该更适合我，适应一下应该会非常舒服。
+对于空格，回车这两个大键，是最容易看出一把键盘调教好坏的。大键采用了卫星轴，就是两个小轴包着主轴。调校不够好的键盘在大键上按下去的感觉要么比较肉，要么比较松垮。但是这款阿米洛键盘，官方称精调卫星轴，手感与平衡杆无差别。实际也是如此。
+细节上，对于空格键，樱花空格的设计简直是点睛之笔，百看不厌。在咸鱼上，光这个空格键都要卖150，很多国产的机械键盘也才卖150啊。我有时候打游戏的时候喜欢把脚撑打开，阿米洛的脚撑感觉格外的可爱打开像脚丫子一样！
+阿米洛樱花108键版本的几个特色功能键还是非常实用的，
+一键打开网易云音乐，计算器，我的电脑等快捷键是我经常用到的，相信大家拿到手也会很快适应。
+接下来说一下不足！
+阿米洛樱花这款键盘对我的震撼完全可以掩盖掉他的不足，但是我还是要说一下。
+首先，线材，800+ 的键盘还在使用micro USB接口是我没想到的，这个价位怎么也得换上TYPE-C接口了吧。
+第二我这把键盘也许是因为做工原因有一些松垮。仔细观察外壳细节，其实是采用了一种类似木纹肌理的设计，触感非常舒服（也迎合了樱花主题元素）；当然，和实木的手感还是有点差距的。也许这就是造成松垮的原因。
+第三。这款键盘没有设计理线槽，导致带出的时候收纳有些麻烦，但是如果不经常外带还是能接受的。
+总结一下：键盘在我的眼里非常值，买来自己用，送人都是非常好的选择。真的非常少女心（送女神，万一就成了呢！单身狗的胡思乱想。）</description>
+    </item>
+    
+    <item>
+      <title>小米降噪耳机</title>
+      <link>https://tiankong44.github.io/post/%E5%B0%8F%E7%B1%B3%E9%99%8D%E5%99%AA%E8%80%B3%E6%9C%BA/</link>
+      <pubDate>Mon, 16 Jul 2018 17:39:43 +0800</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/%E5%B0%8F%E7%B1%B3%E9%99%8D%E5%99%AA%E8%80%B3%E6%9C%BA/</guid>
+      <description>小米降噪耳机测评 我的小米降噪耳机到手已经有一段时间了，接下来我会讲一讲我这段时间的体验。
+首先，我选择的版本是亚光黑色的3.5mm耳机接口版本（疯狂为3.5MM耳机孔打call），因为本身用的小米note2，所以不担心兼容性问题。包装感觉一般般，大家耳机都这样吧，附送的耳套也一般般不评价了。灰色的袋子我也用了一段时间，然后就吃灰了，真的不如直接揣兜里方便。
+从接口到降噪单元的线材采用的是编织线，我是一个比较糙的人，用完耳机直接一团揣兜里，取出来的时候没有很好地回弹效果，理线不太方便，而且由于是编织线的原因，线材折叠后的痕迹非常严重，甚至有很多小疙瘩
+但是从耳机到降噪单元的线材使用的是TPE材质（官网介绍，不懂，据说亲肤高弹，可有效降低听诊器效应），感觉一般吧，就是与耳机接口处容易坏，我的可能是特列吧 ，还有点掉漆。
+降噪单元在3.5mm耳机口版本上略大，毕竟是充电的，还要放电池呢！只是带上后胸前有点重，适应适应也就习惯了。（type-c版本略小）降噪感受
+直接带上耳机给人的感觉还是和普通入耳式耳机一样，与耳朵贴合的紧密程度一般，再加上降噪单元比较重，在行走的时候耳机会不断变松，而松垮又会放大降噪耳机风噪的通病，所以这款耳机最适用的应用场景还是在于交通出行或写字办公上。
+耳机一共有两档降噪（一档完全无用，几乎没开过，直接上二挡）由于我之前没有使用过同类型的产品，按照testv做的同类型的产品模拟，我感觉差距不是一星半点，在公交车上，开与不开降噪效果非常明显，给我特别惊艳的感觉（没用过降噪耳机）在打开音乐，只留下了一部分公交车的噪音和人声，但是如果有人突然在你旁边讲话，这时候你还是能够清晰的听到他的讲话内容的。在地铁上我最不能忍受的就是地铁行驶时产生的的嘈杂声，刺耳，很难受。这时候带上耳机，打开降噪，播放音乐，整个人仿佛置身世外。音质：音质就是玄学，对我而言我喜欢听清澈的人声，这款耳机有点闷。但是用播放器调一调还是能接受的。（小金标价值真的不高）
+续航：续航时间一般，我从学校回家一般两个小时左右，充满电一般可以有一个来回4h左右。勉强满足我的需求，如果有长时间续航的要求，这款耳机可能满足不了你。
+总结
+如果你对音质没有太高要求，又想试一下降噪耳机，这款耳机完全够用。毕竟也才299的价格嘛！</description>
+    </item>
+    
+    <item>
+      <title>JMM（java内存模型）</title>
+      <link>https://tiankong44.github.io/post/jmmjava%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/jmmjava%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</guid>
+      <description>JMM（java内存模型） JMM（java内存模型）：是描述Java中各种变量（线程共享
+量）的访问规则，以及在JVM中将变量存储到内存和从内存中
+读取变量这样的底层细节。
+ 主内存：保存了所有的变量。
+ 共享变量：如果一个变量被多个线程使用，那么这个变量
+  会在每个线程的工作内存中保有一个副本，这种变量就是
+共享变量。
+ 工作内存：每个线程都有自己的工作内存，线程独享，保  存了线程用到了变量的副本（主内存共享变量的一份拷
+贝）。工作内存负责与线程交互，也负责与主内存交互。
+三大特性  可见性 原子性 有序性  JMM对共享内存的操作做出了如下两条规定  线程对共享内存的所有操作都是必须在自己的工作内存中  进行，不能直接从主内存中读写
+ 不同的线程无法直接访问其他线程工作内存中的比偶按  量，因此共享变量的值传递需要通过主内存完成。
+共享变量在线程间的可见性 不同线程都是直接操作自身的工作内存中的副本，因此可能导
+致共享数据变量的修改在线程间不可见。所谓的不可见，狮子
+一个线程对共享变量的不可修改不能及时的被其他线程看到，
+导致共享变量在进程间不可见的原因有以下几个：
+ 指令重排&amp;amp;线程交叉执行 共享变量更新后的值没有在工作内存和主内存间及时更新  线程交叉执行：主要指线程调度
+指令重排：为了发挥CPU的性能，指令执行顺序可能会和书写
+的不同，分为编译器优化的重排序（编译器优化），指令集并
+行重排序（处理器优化），内存系统的重排序（处理器优化）。
+共享变量更新：如果想让线程A对共享变量的修改线程B看到，
+需要以下步骤：
+ 把线程A的工作内存中更新过的变量刷新到主内存中 再讲主内存中最新的共享变量的值刷新到线程B的工作内存中 如果更新不及时，会导致共享变量不可见，数据不准确，线程不安全  重排不会导致单线程内存可见性问题，但多线程交错执行时，
+可能导致可见性问题。
+Java在语言层面实现可见性的两种方式 使用synchronized实现可见性：
+java中synchronized关键字有两重含义，一个是实现原子性，
+一个是实现内存可见性
+synchronized可见性规范：
+ 线程解锁前必须把共享变量的最新值刷新到主内存中
+ 线程加锁时，将清空工作内存中共享变量的值，从而
+  需要从主内存中重新获取最新的值
+因此，线程解说谦对共享变量的修改在下次加锁的时候对
+其他线程可见。整个过程如下：获得互斥锁-&amp;gt;清空工作内存-&amp;gt;
+从主内存拷贝-&amp;gt;执行代码-&amp;gt;写会内存-&amp;gt;释放互斥锁。</description>
+    </item>
+    
+    <item>
+      <title>volatile</title>
+      <link>https://tiankong44.github.io/post/volatile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://tiankong44.github.io/post/volatile/</guid>
+      <description> volatile volatile是java虚拟机提供的轻量级的同步机制
+ 保证可见性 不保证原子性 禁止指令重排  </description>
+    </item>
+    
+  </channel>
+</rss>

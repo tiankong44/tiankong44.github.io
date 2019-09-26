@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>面向对象技术 // tiankong44</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://tiankong44.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="面向对象技术"/>
+<meta name="twitter:description" content="面向对象和面向过程的区别
+ 出发点不同。面向对象方法是符合常规思维的方式来处理客观世界的问题，强调把问题域的要领直接映射到对象及对象的接口上。面向过程方法强调的规则是过程的抽象化与模块化，他是以过程为中心构造或者处理客观世界的问题、 层次逻辑关系不同。面向对象是用类的层次结构体现类之间的继承和发展。面向过程方法处理问题的基本单位是能清晰准确的表达过程模块。 数据处理方式和控制程序方式不同。面向对象将数据与对应的代码封装成一个整体，原则上其他对象不能直接修改其数据，及修改只能由其自身的成员函数来完成。控制程序的方式是“事件驱动”来激活运行程序。面向过程是直接通过程序来处理数据，处理完毕后即可显示结果，在程序控制方式上是按照设计调用  面向对象有哪些特征 面向对象的主要特征包括抽象、继承、封装、多肽
+ 抽象。抽象并不打算解决全部问题，而是解决问题的一部分。抽象包括两个方面：  过程抽象 数据抽象  继承。新类继承了原始类的特性，新类称为原始类的派生类（子类），而原始类称为新类的基类（父类）。子类可以从他的基类那里继承方法和实例变量，并且子类可以修改或者增加新的方法使之更加适合特殊需求。 封装。封装是指将客观事物抽象成类，每个类对自身的数据和方法实行保护。类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。 多肽。 多肽是指允许不同类的对象对同一消息做出响应。多态性语言具有灵活、抽象、行为共享、代码共享等优势，很好的解决了程序函数同名的问题。  优点  较高的开发效力 保证软件的鲁棒性 保证软件的可维护性  什么是继承 继承是面向对象中一个非常重要的特性。通过继承，子类可以使用父类的一些成员变量与方法，从而提高代码的复用性了，提高开发效率。
+特征  JAVA语言不支持多重继承，子类只能有一个父类，但可以通过接口来达到多重继承的目的。 子类只能继承父类非室友的成员变量与方法 当子类定义的成员变量 名与父类的成员变量同名时，子类会覆盖父类的成员变量而不会继承。 当子类的方法与父类的方法有心痛的函数签名（相同的方法名，相同的参数个数与类型）时子类将会覆盖父类的方法，而不会继承。  常见面试题 下列有关继承说法中，正确的是（B)
+   A.子类能继承父类的所有方法和状态 B.子类能继承父类的非私有方法和状态     C.子类能继承父类的public方法和状态 D.子类能继承父类的方法，而不是状态    过多的使用继承会破坏代码的可维护性，当父类被修改时，会影响到所有继承他的子类，从而增加程序维护的难度与成本
+JAVA语言中能使用组合尽量不要用继承
+Super必须为构造函数的第一句
+多肽的实现机制 Java提供了编译时多态和运行时多态两种多态机制。前者是通过方法重载实现的，后者是通过方法的覆盖实现的。
+在方法覆盖中，子类可以覆盖父类的方法，因此同类的方法会在父类与子类中有着不同的表现形式
+　在Java语言中，基类的引用变量不仅可以指向基类的实例对象，也可以指向其子类中的实例对象。同样，接口中的引用变量也可以指向其实现类的实例对象。而程序调用的方法在运行时期才动态绑定（绑定是指将一个方法调用和一个方法主体联系在一起），绑定的是引用变量所指向的具体实例对象的方法，也就是内存中正在运行的那个对象的方法，而不是引用变量的类型中定义的方法。通过这种动态绑定实现了多态。由于只有在运行时才能确定调用哪个方法，因此通过方法覆盖实现的多态也可以被称为运行时多态。
+public class Base { public Base(){ g(); } public void g() { System."/>
+
+    <meta property="og:title" content="面向对象技术" />
+<meta property="og:description" content="面向对象和面向过程的区别
+ 出发点不同。面向对象方法是符合常规思维的方式来处理客观世界的问题，强调把问题域的要领直接映射到对象及对象的接口上。面向过程方法强调的规则是过程的抽象化与模块化，他是以过程为中心构造或者处理客观世界的问题、 层次逻辑关系不同。面向对象是用类的层次结构体现类之间的继承和发展。面向过程方法处理问题的基本单位是能清晰准确的表达过程模块。 数据处理方式和控制程序方式不同。面向对象将数据与对应的代码封装成一个整体，原则上其他对象不能直接修改其数据，及修改只能由其自身的成员函数来完成。控制程序的方式是“事件驱动”来激活运行程序。面向过程是直接通过程序来处理数据，处理完毕后即可显示结果，在程序控制方式上是按照设计调用  面向对象有哪些特征 面向对象的主要特征包括抽象、继承、封装、多肽
+ 抽象。抽象并不打算解决全部问题，而是解决问题的一部分。抽象包括两个方面：  过程抽象 数据抽象  继承。新类继承了原始类的特性，新类称为原始类的派生类（子类），而原始类称为新类的基类（父类）。子类可以从他的基类那里继承方法和实例变量，并且子类可以修改或者增加新的方法使之更加适合特殊需求。 封装。封装是指将客观事物抽象成类，每个类对自身的数据和方法实行保护。类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。 多肽。 多肽是指允许不同类的对象对同一消息做出响应。多态性语言具有灵活、抽象、行为共享、代码共享等优势，很好的解决了程序函数同名的问题。  优点  较高的开发效力 保证软件的鲁棒性 保证软件的可维护性  什么是继承 继承是面向对象中一个非常重要的特性。通过继承，子类可以使用父类的一些成员变量与方法，从而提高代码的复用性了，提高开发效率。
+特征  JAVA语言不支持多重继承，子类只能有一个父类，但可以通过接口来达到多重继承的目的。 子类只能继承父类非室友的成员变量与方法 当子类定义的成员变量 名与父类的成员变量同名时，子类会覆盖父类的成员变量而不会继承。 当子类的方法与父类的方法有心痛的函数签名（相同的方法名，相同的参数个数与类型）时子类将会覆盖父类的方法，而不会继承。  常见面试题 下列有关继承说法中，正确的是（B)
+   A.子类能继承父类的所有方法和状态 B.子类能继承父类的非私有方法和状态     C.子类能继承父类的public方法和状态 D.子类能继承父类的方法，而不是状态    过多的使用继承会破坏代码的可维护性，当父类被修改时，会影响到所有继承他的子类，从而增加程序维护的难度与成本
+JAVA语言中能使用组合尽量不要用继承
+Super必须为构造函数的第一句
+多肽的实现机制 Java提供了编译时多态和运行时多态两种多态机制。前者是通过方法重载实现的，后者是通过方法的覆盖实现的。
+在方法覆盖中，子类可以覆盖父类的方法，因此同类的方法会在父类与子类中有着不同的表现形式
+　在Java语言中，基类的引用变量不仅可以指向基类的实例对象，也可以指向其子类中的实例对象。同样，接口中的引用变量也可以指向其实现类的实例对象。而程序调用的方法在运行时期才动态绑定（绑定是指将一个方法调用和一个方法主体联系在一起），绑定的是引用变量所指向的具体实例对象的方法，也就是内存中正在运行的那个对象的方法，而不是引用变量的类型中定义的方法。通过这种动态绑定实现了多态。由于只有在运行时才能确定调用哪个方法，因此通过方法覆盖实现的多态也可以被称为运行时多态。
+public class Base { public Base(){ g(); } public void g() { System." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tiankong44.github.io/post/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%8A%80%E6%9C%AF/" />
+<meta property="article:published_time" content="2019-09-17T20:30:43+08:00" />
+<meta property="article:modified_time" content="2019-09-17T18:30:43+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://tiankong44.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>tiankong44</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">面向对象技术</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 17, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<p>面向对象和面向过程的区别</p>
+
+<ol>
+<li>出发点不同。面向对象方法是符合常规思维的方式来处理客观世界的问题，强调把问题域的要领直接映射到对象及对象的接口上。面向过程方法强调的规则是过程的抽象化与模块化，他是以过程为中心构造或者处理客观世界的问题、</li>
+<li>层次逻辑关系不同。面向对象是用类的层次结构体现类之间的继承和发展。面向过程方法处理问题的基本单位是能清晰准确的表达过程模块。</li>
+<li>数据处理方式和控制程序方式不同。面向对象将数据与对应的代码封装成一个整体，原则上其他对象不能直接修改其数据，及修改只能由其自身的成员函数来完成。控制程序的方式是“事件驱动”来激活运行程序。面向过程是直接通过程序来处理数据，处理完毕后即可显示结果，在程序控制方式上是按照设计调用</li>
+</ol>
+
+<h4 id="面向对象有哪些特征">面向对象有哪些特征</h4>
+
+<p><strong>面向对象的主要特征包括抽象、继承、封装、多肽</strong></p>
+
+<ol>
+<li>抽象。抽象并不打算解决全部问题，而是解决问题的一部分。抽象包括两个方面：
+
+<ol>
+<li>过程抽象</li>
+<li>数据抽象</li>
+</ol></li>
+<li>继承。新类继承了原始类的特性，新类称为原始类的派生类（子类），而原始类称为新类的基类（父类）。子类可以从他的基类那里继承方法和实例变量，并且子类可以修改或者增加新的方法使之更加适合特殊需求。</li>
+<li>封装。封装是指将客观事物抽象成类，每个类对自身的数据和方法实行保护。类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。</li>
+<li>多肽。 多肽是指允许不同类的对象对同一消息做出响应。多态性语言具有灵活、抽象、行为共享、代码共享等优势，很好的解决了程序函数同名的问题。</li>
+</ol>
+
+<h5 id="优点">优点</h5>
+
+<ol>
+<li>较高的开发效力</li>
+<li>保证软件的鲁棒性</li>
+<li>保证软件的可维护性</li>
+</ol>
+
+<h4 id="什么是继承">什么是继承</h4>
+
+<p><strong>继承是面向对象中一个非常重要的特性。通过继承，子类可以使用父类的一些成员变量与方法，从而提高代码的复用性了，提高开发效率。</strong></p>
+
+<h5 id="特征">特征</h5>
+
+<ol>
+<li>JAVA语言不支持多重继承，子类只能有一个父类，但可以通过接口来达到多重继承的目的。</li>
+<li>子类只能继承父类非室友的成员变量与方法</li>
+<li>当子类定义的成员变量 名与父类的成员变量同名时，子类会覆盖父类的成员变量而不会继承。</li>
+<li>当子类的方法与父类的方法有心痛的函数签名（相同的方法名，相同的参数个数与类型）时子类将会覆盖父类的方法，而不会继承。</li>
+</ol>
+
+<h5 id="常见面试题">常见面试题</h5>
+
+<p><strong>下列有关继承说法中，正确的是（B)</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>A.子类能继承父类的所有方法和状态</th>
+<th>B.子类能继承父类的非私有方法和状态</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>C.子类能继承父类的public方法和状态</td>
+<td>D.子类能继承父类的方法，而不是状态</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>过多的使用继承会破坏代码的可维护性，当父类被修改时，会影响到所有继承他的子类，从而增加程序维护的难度与成本</strong></p>
+
+<p><strong>JAVA语言中能使用组合尽量不要用继承</strong></p>
+
+<p><strong>Super必须为构造函数的第一句</strong></p>
+
+<h4 id="多肽的实现机制">多肽的实现机制</h4>
+
+<p><strong>Java提供了编译时多态和运行时多态两种多态机制。前者是通过方法重载实现的，后者是通过方法的覆盖实现的。</strong></p>
+
+<p>在方法覆盖中，子类可以覆盖父类的方法，因此同类的方法会在父类与子类中有着不同的表现形式</p>
+
+<p>　在Java语言中，基类的引用变量不仅可以指向基类的实例对象，也可以指向其子类中的实例对象。同样，接口中的引用变量也可以指向其实现类的实例对象。而程序调用的方法在运行时期才动态绑定（绑定是指将一个方法调用和一个方法主体联系在一起），绑定的是引用变量所指向的具体实例对象的方法，也就是内存中正在运行的那个对象的方法，而不是引用变量的类型中定义的方法。通过这种动态绑定实现了多态。由于只有在运行时才能确定调用哪个方法，因此通过方法覆盖实现的多态也可以被称为运行时多态。</p>
+
+<pre><code class="language-java">public class Base {
+    public Base(){
+        g();
+    }
+
+    public void g() {
+        System.out.println(&quot;Base g()&quot;);
+    }
+    
+    public void f() {
+        System.out.println(&quot;Base f()&quot;);
+    }
+}
+</code></pre>
+
+<pre><code class="language-java">public class Derived extends Base{
+    
+    public void g() {
+        System.out.println(&quot;Derived g()&quot;);
+    }
+    
+    public void f() {
+        System.out.println(&quot;Derived f()&quot;);
+    }
+    
+    public static void main(String[] args) {
+        Base base=new Derived();
+        base.f();
+        base.g();
+    }
+}
+</code></pre>
+
+<p><strong>结果</strong></p>
+
+<pre><code>Derived g()
+Derived f()
+Derived g()
+</code></pre>
+
+<h5 id="常见面试题-1">常见面试题</h5>
+
+<p><strong>Java中提供了哪两种用于多肽的机制</strong></p>
+
+<p>答：编译时多肽和运行时多肽（编译时多肽是重载实现的，运行时多肽是覆盖实现的）</p>
+
+<h4 id="重载-覆盖的区别">重载、覆盖的区别</h4>
+
+<p><strong>重载：方法名相同，但参数不同的多个同名函数</strong></p>
+
+<p>　　注意：</p>
+
+<ol>
+<li>参数不同的意思是参数类型、参数个数、参数顺序至少有一个不同</li>
+<li>返回值和异常以及访问修饰符，不能作为重载的条件(因为对于匿名调用，会出现歧义，eg:void a ()和int a() ，如果调用a()，出现歧义)</li>
+<li>main方法也是可以被重载的</li>
+</ol>
+
+<p><strong>覆盖：子类重写父类的方法，要求方法名和参数类型完全一样(参数不能是子类)，返回值和异常比父类小或者相同(即为父类的子类)，访问修饰符比父类大或者相同</strong></p>
+
+<p>　　　两同两小一大</p>
+
+<p>　　  注意：子类实例方法不能覆盖父类的静态方法；子类的静态方法也不能覆盖父类的实例方法(编译时报错)，总结为方法不能交叉覆盖</p>
+
+<h4 id="抽象类-abstract-和接口-interface-的异同点">抽象类(abstract)和接口(interface)的异同点</h4>
+
+<p><strong>接口是抽象类的延伸，是抽象类的特殊化</strong></p>
+
+<p><strong>相同点：</strong></p>
+
+<ol>
+<li>都可以写抽象方法，规定了子类必须要重写的方法（所以不能有抽象构造方法和抽象静态方法）</li>
+</ol>
+
+<p>为什么不能有抽象构造方法：构造方法是类实例化时的构造过程，而抽象类不能被实例化，两者矛盾，所以不存在抽象构造方法。</p>
+
+<p>为什么不能有抽象静态方法：抽象方法是专用于继承来实现的，而静态方法可以被类及其对象调用，不能被继承，两者矛盾，所以不存在抽象静态方法。</p>
+
+<ol>
+<li>都不能被实例化，所以不能创建实例对象（由于没有对应的具体概念）；【可以用new 接口(){}的方法来当做匿名类，把方法作为参数来进行传递，注：这不是实例化】</li>
+</ol>
+
+<p><strong>不同点（语法）：</strong></p>
+
+<ol>
+<li>抽象类是对类抽象，而接口是对行为抽象</li>
+<li>抽象类只能继承一个，而接口可以实现多个</li>
+<li>抽象类有构造方法（为子类准备），而接口没有构造方法</li>
+<li>抽象类中可以有非抽象方法，而接口中只能有抽象方法，并且只能是public类型的，默认为 public abstract 类型（JDK1.8开始，接口中可以通过default关键字来定义非抽象方法，解决扩展问题）</li>
+<li>抽象类中可以有成员变量和属性，而接口中只能有由static final修饰的常量</li>
+<li>抽象类和接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问类型可以是任意类型，但接口中定义的变量只能是 public static final 类型，并且默认为 public static final 类型。 （必须赋初值）</li>
+</ol>
+
+<h4 id="内部类">内部类</h4>
+
+<p><strong>在 Java 中，可以将一个类定义在另一个类里面或者一个方法里面，这样的类称为内部类。广泛意义上的内部类一般来说包括这四种：成员内部类、局部内部类、匿名内部类和静态内部类。</strong></p>
+
+<ol>
+<li><p>成员内部类。成员内部类是最普通的内部类，它的定义为位于另一个类的内部</p>
+
+<pre><code class="language-java">class Circle {
+   double radius = 0;
+        
+   public Circle(double radius) {
+       this.radius = radius;
+   }
+        
+   class Draw {     //内部类
+       public void drawSahpe() {
+           System.out.println(&quot;drawshape&quot;);
+       }
+   }
+}
+</code></pre></li>
+
+<li><p>局部内部类。局部内部类是定义在一个方法或者一个作用域里面的类，它和成员内部类的区别在于局部内部类的访问仅限于方法内或者该作用域内。</p>
+
+<pre><code class="language-java">class People{
+   public People() {
+            
+   }
+}
+    
+class Man{
+   public Man(){
+            
+   }
+        
+   public People getWoman(){
+       class Woman extends People{   //局部内部类
+           int age =0;
+       }
+       return new Woman();
+   }
+}
+</code></pre></li>
+
+<li><p>匿名内部类。本质：匿名内部类会隐式的继承一个类或者实现一个接口，或者说，匿名内部类是一个继承了该类或者实现了该接口的子类匿名对象。</p>
+
+<pre><code class="language-java">package lambdatest;
+public class InnerclassTest {  //外部类
+   String name=&quot;黄林&quot;;
+ public static void main(String []args){
+     (
+             new InnerclassTest(){  //匿名内部类开始
+                 void setName(String n){
+                     this.name = n;
+                     System.out.println(&quot;内部类---姓名：&quot;+name);
+                 }
+             }
+             ).setName(&quot;王佳&quot;);      //匿名内部类结束
+ }
+     
+}
+   
+</code></pre></li>
+</ol>
+
+<p><strong>匿名内部类使用原则</strong></p>
+
+<ol>
+<li>匿名内部类不能有构造函数</li>
+<li>不能定义静态成员，方法和类</li>
+<li>不能是public、protected、private、static</li>
+<li>只能创建匿名内部类的一个实例</li>
+
+<li><p>一个匿名内部类一定是跟在new后面，这个匿名类必须继承一个父类或者实现一个借口</p></li>
+
+<li><p>静态内部类。静态内部类也是定义在另一个类里面的类，只不过在类的前面多了一个关键字static。静态内部类是不需要依赖于外部类的，这点和类的静态成员属性有点类似，并且它不能使用外部类的非static成员变量或者方法，这点很好理解，因为在没有外部类的对象的情况下，可以创建静态内部类的对象，如果允许访问外部类的非static成员就会产生矛盾，因为外部类的非static成员必须依附于具体的对象。</p>
+
+<pre><code class="language-java">public class Test {
+   public static void main(String[] args)  {
+       Outter.Inner inner = new Outter.Inner();
+   }
+}
+    
+class Outter {
+   public Outter() {
+            
+   }
+        
+   static class Inner {
+       public Inner() {
+                
+       }
+   }
+}
+</code></pre></li>
+</ol>
+
+<p><strong>非静态内部类中不能定义静态成员</strong></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

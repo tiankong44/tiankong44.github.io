@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>多线程(二) // tiankong44</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://tiankong44.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="多线程(二)"/>
+<meta name="twitter:description" content="多线程（二）  线程等待与唤醒  方法介绍：
+Object类中定义了wait()、notify()、notifyAll()等接口，描述如下：
+wait():让线程处于等待阻塞状态（并释放它持有的锁），直到其他线程调用此对象的notify()或notifyAll()方法。该方法有三个重载，分别是无参、带参long timeout（表示超过某个时间量会就绪）、带参long timeout,int nanos。后两者都表示时间，nanos的精度更高。
+notify():唤醒在此对象监视器上等待的单个线程，关于“对象监视器上等待的线程”可以理解为是另外一个想要竞争该对象锁的线程。在jdk注释中详细描述了如何让一个线程成为“对象监视器上等待的线程”，有如下三条：
+1.通过执行该对象的同步实例方法。
+2.通过执行在对象上同步的已同步语句体。
+3.对于Class类型的对象，通过执行该类的异步静态方法 notifyAll():唤醒在此对象监视器上等待的所有线程。
+上述三个方法都必须在synchronized同步关键字所限定的作用域中调用，否则会报错java.lang.IllegalMonitorStateException，这个错误的直观信息是当前线程并不是对象监视器上等待的线程，所以无法进行线程间通信，无法调用上述方法。
+public class ThreadA extends Thread{ public ThreadA(String name) { super(name); } @Override public void run() { synchronized (this) { System.out.println(Thread.currentThread().getName()&#43;&quot; call notify()&quot;); notify(); } } }  public class WaitTest { public static void main(String[] args) { ThreadA t1 = new ThreadA(&quot;t1&quot;); synchronized (t1) { try { System.out.println(Thread.currentThread().getName()&#43;&quot; start t1&quot;); t1.start(); System.out.println(Thread.currentThread().getName()&#43;&quot; wait()&quot;); t1."/>
+
+    <meta property="og:title" content="多线程(二)" />
+<meta property="og:description" content="多线程（二）  线程等待与唤醒  方法介绍：
+Object类中定义了wait()、notify()、notifyAll()等接口，描述如下：
+wait():让线程处于等待阻塞状态（并释放它持有的锁），直到其他线程调用此对象的notify()或notifyAll()方法。该方法有三个重载，分别是无参、带参long timeout（表示超过某个时间量会就绪）、带参long timeout,int nanos。后两者都表示时间，nanos的精度更高。
+notify():唤醒在此对象监视器上等待的单个线程，关于“对象监视器上等待的线程”可以理解为是另外一个想要竞争该对象锁的线程。在jdk注释中详细描述了如何让一个线程成为“对象监视器上等待的线程”，有如下三条：
+1.通过执行该对象的同步实例方法。
+2.通过执行在对象上同步的已同步语句体。
+3.对于Class类型的对象，通过执行该类的异步静态方法 notifyAll():唤醒在此对象监视器上等待的所有线程。
+上述三个方法都必须在synchronized同步关键字所限定的作用域中调用，否则会报错java.lang.IllegalMonitorStateException，这个错误的直观信息是当前线程并不是对象监视器上等待的线程，所以无法进行线程间通信，无法调用上述方法。
+public class ThreadA extends Thread{ public ThreadA(String name) { super(name); } @Override public void run() { synchronized (this) { System.out.println(Thread.currentThread().getName()&#43;&quot; call notify()&quot;); notify(); } } }  public class WaitTest { public static void main(String[] args) { ThreadA t1 = new ThreadA(&quot;t1&quot;); synchronized (t1) { try { System.out.println(Thread.currentThread().getName()&#43;&quot; start t1&quot;); t1.start(); System.out.println(Thread.currentThread().getName()&#43;&quot; wait()&quot;); t1." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tiankong44.github.io/post/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BA%8C/" />
+<meta property="article:published_time" content="2019-08-07T20:30:43+08:00" />
+<meta property="article:modified_time" content="2019-08-07T18:30:43+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://tiankong44.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>tiankong44</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">多线程(二)</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Aug 7, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h4 id="多线程-二">多线程（二）</h4>
+
+<ol>
+<li>线程等待与唤醒</li>
+</ol>
+
+<p>方法介绍：</p>
+
+<p>Object类中定义了wait()、notify()、notifyAll()等接口，描述如下：</p>
+
+<p>wait():让线程处于等待阻塞状态（并释放它持有的锁），直到其他线程调用此对象的notify()或notifyAll()方法。该方法有三个重载，分别是无参、带参long timeout（表示超过某个时间量会就绪）、带参long timeout,int nanos。后两者都表示时间，nanos的精度更高。</p>
+
+<p>notify():唤醒在此对象监视器上等待的单个线程，关于“对象监视器上等待的线程”可以理解为是另外一个想要竞争该对象锁的线程。在jdk注释中详细描述了如何让一个线程成为“对象监视器上等待的线程”，有如下三条：</p>
+
+<p>1.通过执行该对象的同步实例方法。</p>
+
+<p>2.通过执行在对象上同步的已同步语句体。</p>
+
+<p>3.对于Class类型的对象，通过执行该类的异步静态方法
+   notifyAll():唤醒在此对象监视器上等待的所有线程。</p>
+
+<p>上述三个方法都必须在synchronized同步关键字所限定的作用域中调用，否则会报错java.lang.IllegalMonitorStateException，这个错误的直观信息是当前线程并不是对象监视器上等待的线程，所以无法进行线程间通信，无法调用上述方法。</p>
+
+<pre><code class="language-java">   public class ThreadA extends Thread{
+   
+   	public ThreadA(String name) {
+   		super(name);
+   	}
+   
+   	@Override
+   	public void run() {
+   		synchronized (this) {
+   			System.out.println(Thread.currentThread().getName()+&quot; call notify()&quot;);
+   			notify();
+   		}
+   	}
+   }
+</code></pre>
+
+<pre><code class="language-java">   public class WaitTest {
+   
+   	public static void main(String[] args) {
+   		
+   		ThreadA t1 = new ThreadA(&quot;t1&quot;);
+   		
+   		synchronized (t1) {
+   			try {
+   				System.out.println(Thread.currentThread().getName()+&quot; start t1&quot;);
+   				t1.start();
+   				
+   				System.out.println(Thread.currentThread().getName()+&quot; wait()&quot;);
+   				t1.wait();
+   				
+   				System.out.println(Thread.currentThread().getName()+&quot; continue&quot;);
+   			} catch (InterruptedException e) {
+   				e.printStackTrace();
+   			}
+   		}
+   	}
+   }
+</code></pre>
+
+<pre><code class="language-java">   main start t1
+   main wait()
+   t1 call notify()
+   main continue
+   
+</code></pre>
+
+<p>解析：</p>
+
+<p>1.main方法运行，主线程启动，执行代码ThreadA t1 = new ThreadA(&ldquo;t1&rdquo;);创建线程类对象t1，命名也是t1。</p>
+
+<p>2.主线程继续运行，到synchronized (t1)，主线程获取t1的同步锁。</p>
+
+<p>3.主线程运行至t1.start();部分，开启分支线程，但此时t1的同步锁仍被主线程持有，所以新的分支线程拿不到t1的同步锁，此时新线程处于阻塞状态。</p>
+
+<p>4.主线程运行至t1.wait();部分， 此处wait()的作用是可以让当前正在运行的线程进入等待状态，即便此处调用wait()方法的对象是t1，但当前运行的是主线程，所以效果就是主线程进入等待阻塞，并且释放它持有的t1的同步锁。</p>
+
+<p>5.主线程的t1同步锁被释放之后，分支线程获取t1的同步锁，开始运行。</p>
+
+<p>6.分支线程执行notify();这里难点就来了，notify()方法可以唤醒对象监视器上的等待线程，如何判断主线程是不是属于t1这个对象监视器上的等待线程呢？进行尝试就知道了，正因为在2步中主线程运行了同步代码块，所以此时主线程早已是t1对象监视器上的等待线程。所以一旦运行notify()之后，主线程就会从等待阻塞中被唤醒。但这里还有一个重要的问题，在主线程被之后，它的主体部分都在同步代码块中，需要获取t1的同步锁才可执行，所以这里仍需仍待ThreadA的run()方法执行完毕，主线程才可自然获取同步锁。但反过来讲，即便不调用notify()方法，分支线程运行完毕后进入死亡状态，会释放同步锁，此时主线程仍可停止等待阻塞状态，继续往下执行，这个原因目前有两种解释，一种是说当线程死亡时会自动调用notifyAll()方法，唤醒当前对象监视器上的其他线程；一种是说主线程没有竞争对手，所以会被自动执行，这里我倾向前者，尚未证实。</p>
+
+<ol>
+<li>线程让步</li>
+</ol>
+
+<p>方法介绍：</p>
+
+<p>yield()的作用是让步，它能让当前线程由“运行状态”进入到“就绪状态”，从而让其它具有相同优先级的等待线程获取执行权；但是，并不能保证在当前线程调用yield()之后，其它具有相同优先级的线程就一定能获得执行权；也有可能是当前线程又进入到“运行状态”继续运行，其实当前调用了yield()方法的线程跟其他线程有相同的优先级。</p>
+
+<p>方法对比：</p>
+
+<p>yield()常用作与wait()方法进行对比，区别分析如下：</p>
+
+<p>(01) wait()是让线程由“运行状态”进入到“等待(阻塞)状态”，而yield()是让线程由“运行状态”进入到“就绪状态”。</p>
+
+<p>(02) wait()是会线程释放它所持有对象的同步锁，而yield()方法不会释放锁。</p>
+
+<ol>
+<li>线程休眠</li>
+</ol>
+
+<p>方法介绍：</p>
+
+<p>sleep() 的作用是让当前线程休眠，即当前线程会从“运行状态”进入到“休眠(阻塞)状态”。sleep()会指定休眠时间，线程休眠的时间会大于/等于该休眠时间；在线程重新被唤醒时，它会由“阻塞状态”变成“就绪状态”，从而等待cpu的调度执行。</p>
+
+<p>方法对比：</p>
+
+<p>sleep()常用作与wait()方法进行对比，区别分析如下：</p>
+
+<p>wait()的作用是让当前线程由“运行状态”进入“等待(阻塞)状态”的同时，也会释放同步锁。而sleep()的作用是也是让当前线程由“运行状态”进入到“休眠(阻塞)状态”。</p>
+
+<p>但是，wait()会释放对象的同步锁，而sleep()则不会释放锁。</p>
+
+<ol>
+<li>join()方法</li>
+</ol>
+
+<p>方法介绍：</p>
+
+<p>join() 的作用：让“主线程”等待“子线程”结束之后才能继续运行。</p>
+
+<p>这里的主线程并不指main方法表示的线程，而是强调有时候会在一个线程中通过执行代码而开启一个新的线程，这里认为前者是主线程，后者是子线程。</p>
+
+<ol>
+<li>线程中断</li>
+</ol>
+
+<p>方法介绍：</p>
+
+<p>interrupt():作用是中断本线程。但是它的具体运用比较复杂，在api文档中描如下：</p>
+
+<pre><code>   中断一个“已终止的线程”不会产生任何操作。本线程中断自己是被允许的；其它线程调用本线程的interrupt()方法时，会通过checkAccess()检查权限。这有可能抛出SecurityException异常。
+   如果本线程是处于阻塞状态：调用线程的wait(), wait(long)或wait(long, int)会让它进入等待(阻塞)状态，或者调用线程的join(), join(long), join(long, int), sleep(long), sleep(long, int)也会让它进入阻塞状态。若线程在阻塞状态时，调用了它的interrupt()方法，那么它的“中断状态”会被清除并且会收到一个InterruptedException异常。例如，线程通过wait()进入阻塞状态，此时通过interrupt()中断该线程；调用interrupt()会立即将线程的中断标记设为“true”，但是由于线程处于阻塞状态，所以该“中断标记”会立即被清除为“false”，同时，会产生一个InterruptedException的异常。
+   如果线程被阻塞在一个Selector选择器中，那么通过interrupt()中断它时；线程的中断标记会被设置为true，并且它会立即从选择操作中返回。
+   如果不属于前面所说的情况，那么通过interrupt()中断线程时，它的中断标记会被设置为“true”。
+</code></pre>
+
+<p>isInterrupted():返回值是对象的“中断标记”，为true或false。</p>
+
+<p>interrupted():基本功能跟isInterrupted()类似，但是它还会清除“中断标记”，也就是把它设为false。</p>
+
+<p>终止线程的方式分析：</p>
+
+<p>这个问题分为多种情况，描述如下：</p>
+
+<ol>
+<li><p>终止处于“阻塞状态”的线程。思路是在线程阻塞的情况下可以调用线程的interrupt()将线程的中断标记为true。但此时由于线程阻塞，所以会自动清除中断标记并抛出一个InterruptedException异常，所以这里通过try-catch的方式，控制程序进入catch块，再结合代码设计，确保程序进入catch块后让线程运行结束，即可起到终止线程的效果。（比如通过这方式终止掉死循环的线程）</p></li>
+
+<li><p>终止处于“运行状态”的线程。思路是通过“中断标记”，isInterrupted()是判断线程的中断标记是不是为true。所以当线程处于“运行状态”并且你想要终止它时，调用线程的interrupt()方法即可让线程的中断标记变为true，通过这个方式，灵活运用isInterrupted()方法即可终止处于“运行状态”的线程。（这里还可以补充另外一个方法，就是通过一个boolean类型变量来控制线程中的循环，往往结合volatile关键字使用。）</p></li>
+
+<li><p>通用的终止线程的形式。在实际编码中线程也许处于“阻塞状态”还是“运行状态”也许并不确定，所以需要有一个通用编码方式来终止线程。描述如下：</p>
+
+<pre><code class="language-java">@Override
+public void run() {
+   try {
+       // 1. isInterrupted()保证，只要中断标记为true就终止线程。
+       while (!isInterrupted()) {
+           // 执行任务...
+       }
+   } catch (InterruptedException ie) {  
+       // 2. InterruptedException异常保证，当InterruptedException异常产生时，线程被终止。
+   }
+}
+</code></pre></li>
+
+<li><p>线程优先级和守护线程概念介绍：</p></li>
+</ol>
+
+<p>Java中的线程优先级的范围是1～10，默认的优先级是5。“高优先级线程”会优先于“低优先级线程”执行。</p>
+
+<p>Java中有两种线程：用户线程和守护线程。可以通过isDaemon()方法来区别它们：如果返回false，则说明该线程是“用户线程”；否则就是“守护线程”。</p>
+
+<p>用户线程一般用户执行用户级任务，而守护线程也就是“后台线程”，一般用来执行后台任务。需要注意的是：Java虚拟机在“用户线程”都结束后会后退出。</p>
+
+<p>JDK 中关于线程优先级和守护线程的介绍如下：</p>
+
+<pre><code>   每个线程都有一个优先级。“高优先级线程”会优先于“低优先级线程”执行。每个线程都可以被标记为一个守护进程或非守护进程。在一些运行的主线程中创建新的子线程时，子线程的优先级被设置为等于“创建它的主线程的优先级”，当且仅当“创建它的主线程是守护线程”时“子线程才会是守护线程”。
+   
+   当Java虚拟机启动时，通常有一个单一的非守护线程（该线程通常是通过main()方法启动）。JVM会一直运行直到下面的任意一个条件发生，JVM就会终止运行：
+   (01) 调用了exit()方法，并且exit()有权限被正常执行。
+   (02) 所有的“非守护线程”都死了(即JVM中仅仅只有“守护线程”)。
+   
+   每一个线程都被标记为“守护线程”或“用户线程”。当只有守护线程运行时，JVM会自动退出。
+</code></pre>
+
+<p>实现方式：</p>
+
+<p>通过调用线程对象的setPriority(优先级)方法。优先级数字越小，级别越高。</p>
+
+<p>通过调用线程对象的setDaemon(true)方法，可以把线程设置为守护线程。调用isDaemon()方法，根据返回值判定线程是否是守护线程。</p>
+
+<p>守护线程的意义：</p>
+
+<p>守护线程拥有自动结束自己生命周期的特性，而非守护线程不具备这个特点。</p>
+
+<p>JVM 中的垃圾回收线程就是典型的守护线程，当 JVM 要退出时，由于垃圾回收线程座位守护线程不会干扰JVM的终止，否则将导致程序无法退出。</p>
+
+<p>通常来说，守护线程经常被用来执行一些后台任务，但是呢，你又希望在程序退出时，或者说 JVM 退出时，线程能够自动关闭，此时，守护线程是你的首选。</p>
+
+<ol>
+<li>生产消费者</li>
+</ol>
+
+<p>概念介绍：</p>
+
+<p>生产/消费者问题是个非常典型的多线程问题，涉及到的对象包括“生产者”、“消费者”、“仓库”和“产品”。他们之间的关系如下：</p>
+
+<p>(01) 生产者仅仅在仓储未满时候生产，仓满则停止生产。</p>
+
+<p>(02) 消费者仅仅在仓储有产品时候才能消费，仓空则等待。</p>
+
+<p>(03) 当消费者发现仓储没产品可消费时候会通知生产者生产。</p>
+
+<p>(04) 生产者在生产出可消费产品时候，应该通知等待的消费者去消费。</p>
+
+<p>代码实例：</p>
+
+<pre><code class="language-java">   /**
+    * 仓库
+   */
+   public class Depot {
+   
+   	private int capacity; // 仓库的容量
+   	private int size; // 仓库的实际数量
+   
+   	public Depot(int capacity) {
+   		this.capacity = capacity;
+   		this.size = 0;
+   	}
+   
+   	public synchronized void produce(int val) {
+   		try {
+   			// val可能会超出最大容量，需要多次生产，因此用left表示目前还需生产的数量
+   			int left = val;
+   			// left未归零生产就不能停止
+   			while (left &gt; 0) {
+   				// 如果仓库已满就等待“消费者”消费产品
+   				while (size &gt;= capacity) {
+   					wait();
+   				}
+   				// 获取“实际生产的数量”（即库存中新增的数量）
+   				int inc = (size + left) &gt; capacity ? (capacity - size) : left;
+   				// 让size变大增加目前库存
+   				size = size + inc;
+   				// 看还有多少需要生产
+   				left = left - inc;
+   				// 格式化输出显示一下
+   				System.out.printf(&quot;%s produce(%3d) --&gt; left=%3d, inc=%3d, size=%3d\n&quot;, Thread.currentThread().getName(),
+   						val, left, inc, size);
+   				// 一次生产完毕，可以唤醒其他线程
+   				notifyAll();
+   			}
+   		} catch (InterruptedException e) {
+   			e.printStackTrace();
+   		}
+   	}
+   
+   	public synchronized void consume(int val) {
+   		try {
+   			// val可能会超出最大容量，需要多次生产，因此用left表示目前还需消费的数量
+   			int left = val;
+   			while (left &gt; 0) {
+   				// 库存为0时等待“生产者”生产产品。
+   				while (size &lt;= 0) {
+   					wait();
+   				}
+   				// 获取“实际消费的数量”(即库存中实际减少的数量)
+   				int dec = (size &lt; left) ? size : left;
+   				// 让size变小消费库存
+   				size = size - dec;
+   				// 看还有多少需要消费
+   				left = left - dec;
+   				// 格式化输出显示一下
+   				System.out.printf(&quot;%s consume(%3d) &lt;-- left=%3d, dec=%3d, size=%3d\n&quot;, Thread.currentThread().getName(),
+   						val, left, dec, size);
+   				// 一次生产完毕，可以唤醒其他线程
+   				notifyAll();
+   			}
+   		} catch (InterruptedException e) {
+   			e.printStackTrace();
+   		}
+   	}
+   
+   	public String toString() {
+   		return &quot;capacity:&quot; + capacity + &quot;, actual size:&quot; + size;
+   	}
+   }
+</code></pre>
+
+<pre><code class="language-java">   /**
+    * 生产者
+    */
+   public class Producer {
+   
+   	private Depot depot;	// 指定生产者操作的仓库
+   
+   	public Producer(Depot depot) {
+   		this.depot = depot;
+   	}
+   
+   	// 生产产品：新建一个线程向仓库中生产产品。
+   	public void produce(final int val) {
+   		// 开启一个新线程
+   		new Thread() {
+   			// 编写这个新线程的run()方法
+   			public void run() {
+   				depot.produce(val);
+   			}
+   		}.start();
+   	}
+   }
+</code></pre>
+
+<pre><code class="language-java">   /**
+    * 消费者
+    */
+   public class Customer {
+   	
+   	private Depot depot;	// 消费者操作的仓库
+   
+   	public Customer(Depot depot) {
+   		this.depot = depot;
+   	}
+   
+   	// 消费产品：新建一个线程从仓库中消费产品。
+   	public void consume(final int val) {
+   		// 开启一个新线程
+   		new Thread() {
+   			// 编写这个新线程的run()方法
+   			public void run() {
+   				depot.consume(val);
+   			}
+   		}.start();
+   	}
+   }
+</code></pre>
+
+<pre><code class="language-java">   public class Test {
+   
+   	public static void main(String[] args) {
+   		// 创建仓库实例,仓库容量100
+   		Depot mDepot = new Depot(100);
+   		// 创建生产者实例，绑定仓库
+   		Producer mPro = new Producer(mDepot);
+   		// 创建消费者实例，绑定仓库
+   		Customer mCus = new Customer(mDepot);
+   
+   		// 生产者生产60
+   		mPro.produce(60);
+   		// 生产者生产120
+   		mPro.produce(120);
+   		// 消费者消费90
+   		mCus.consume(90);
+   		// 消费者消费150
+   		mCus.consume(150);
+   		// 消费者消费110
+   		mPro.produce(110);
+   	}
+   }
+</code></pre>
+
+<p>代码解析：</p>
+
+<ol>
+<li><p>在测试类中只有一个仓库对象，调用消费者的消费方法或生产者的生产方法都会开启分支线程，这些分支线程又都会调用同一个仓库对象的生产方法或消费方法，这两个方法都加锁了，这就导致同一时间只能有一个线程进行生产或消费。</p></li>
+
+<li><p>在生产或消费方法中做了一个重要判断，就是如果一次生产的内容超出了最大容量，就需要多次生产，因此定义变量left，用它来表示还需要生产或消费的量，结合循环的使用，只要left不为0，这个线程就还需要重复进行生产或消费动作。</p></li>
+
+<li><p>如果在left不为0的情况下，即将进行一次生产或消费，如果要生产但是仓库已满，或要消费但是仓库为0，就都需要让当前线程进入等待状态，并释放同步锁，让给其他线程。这里如果刚刚因为想生产但是仓库已满导致线程等待，又让另外一个生产线程拿到了锁，那么这个刚刚拿到锁的线程也会随着代码执行来进行等待状态，直到消费线程拿到锁为止。</p></li>
+
+<li><p>每次顺利的生产或消费之后，都会通过唤醒操作，来唤醒其他所有等待线程，比如因为仓库已满导致好几个生产线程都等待了，当有一个消费线程成功消费之后，就会唤醒之前所有等待的生产线程，它们又可以争抢同步锁然后进行生产了。</p></li>
+</ol>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
